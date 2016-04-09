@@ -35,7 +35,7 @@ public class Twitter {
 	public void unesi(String korisnik, String poruka) {
 		//Pravi se nova poruka i puni podacima.
 		TwitterPoruka tp = new TwitterPoruka();
-		tp.setKorisnik("korisnik");
+		tp.setKorisnik(korisnik);
 		tp.setPoruka(poruka);
 		//Poruka se unosi u listu na kraj
 		poruke.addLast(tp);
@@ -49,8 +49,8 @@ public class Twitter {
 	 * @return TwitterPoruka [] - niz poruka 
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
-		if (tag==null || tag == "")
-		throw new RuntimeException("Morate uneti tag");
+		if (tag==null || tag.isEmpty())
+			throw new RuntimeException("Morate uneti tag");
 		//Ako je maxBroj <=0, vraca maxBroj se postavlja na 100 poruka
 		if (maxBroj<=0) maxBroj = 100;
 		//Pomocna promenljiva koja predstavlja brojac upisanih poruka
@@ -65,10 +65,9 @@ public class Twitter {
 		for (int i = 0; i < poruke.size(); i++)
 			if (poruke.get(i).getPoruka().indexOf(tag)!=-1)
 				if (brojac < maxBroj){
-					rezultat[brojac+1]=poruke.get(i);
+					rezultat[brojac]=poruke.get(i);
 					brojac++;
-				}
-		else break;
+				} else break;
 		return rezultat;
 	}
 
