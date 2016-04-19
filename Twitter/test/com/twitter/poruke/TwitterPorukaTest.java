@@ -105,5 +105,11 @@ public class TwitterPorukaTest {
 		this.poruka.setPoruka(poruka);
 		this.poruka.setKorisnik(korisnik);
 		assertEquals("KORISNIK:"+korisnik+" PORUKA:"+poruka, this.poruka.toString());
-	}
+	}  
+	
+	
+	
+	
+	
+	
 }
